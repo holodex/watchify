@@ -93,6 +93,7 @@ function watchify (b, opts) {
     });
     
     function watchFile (file) {
+        if (b._mdeps.top.basedir === file) return;
         if (!fwatchers[file]) fwatchers[file] = [];
         if (!fwatcherFiles[file]) fwatcherFiles[file] = [];
         if (fwatcherFiles[file].indexOf(file) >= 0) return;
